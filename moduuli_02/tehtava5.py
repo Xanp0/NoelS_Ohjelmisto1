@@ -1,0 +1,1 @@
+# jakojäännös = % on tärkeä tähän?
