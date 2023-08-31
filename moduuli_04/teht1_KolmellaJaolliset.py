@@ -1,4 +1,9 @@
-# Kirjoita while-toistorakennetta käyttävä ohjelma,
-# joka tulostaa kolmella jaolliset luvut väliltä 1..1000.
-while 2:
-    print("")
+print("Kolmella jaolliset luvut väliltä 1..1000.")
+jaolliset = 1
+
+while jaolliset <= 1000:
+    if jaolliset % 3 == 0:
+        jaettava = jaolliset
+        print(f"Kolmella jaollinen: {jaettava}")
+
+    jaolliset = jaolliset + 1

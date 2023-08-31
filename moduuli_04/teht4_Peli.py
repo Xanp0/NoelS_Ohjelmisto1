@@ -1,8 +1,14 @@
-# Kirjoita peli, jossa tietokone arpoo kokonaisluvun väliltä 1..10.
-# Kone arvuuttelee lukua pelaajalta siihen asti, kunnes tämä arvaa oikein.
-# Kunkin arvauksen jälkeen ohjelma tulostaa tekstin Liian suuri arvaus, Liian pieni arvaus tai Oikein.
-# Huomaa, että tietokone ei saa vaihtaa lukuaan arvauskertojen välissä.
 import random
 
-while 2:
-    print("")
+vastaus = random.randint(1, 10)
+arvaus = int(input("Arvaa 1-10 väliltä: "))
+
+while vastaus != arvaus:
+    if arvaus < vastaus:
+        print("Liian pieni arvaus.")
+    elif arvaus > vastaus:
+        print("Liian suuri arvaus.")
+
+    arvaus = int(input("Arvaa 1-10 väliltä: "))
+
+print("Arvasit oikein.")
