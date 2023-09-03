@@ -1,5 +1,7 @@
-# En tajua miten tekisin tehtävän...
+# En tajua miten tekisin tehtävän
 import math
+import random
+
 # math.pi ** 2 / 4
 # math.pi / 4
 
@@ -11,8 +13,13 @@ import math
 A = math.pi * 1 ** 2  # ympyrän pinta-ala
 # B = neliö
 
-N = int(input("Arvottavien pisteiden määrä: "))
-# n = ympyrän sisällä olevat pisteet
+N = 1000000
+n = 0  # ympyrän sisällä olevat pisteet
 
-while N:
-    print("π likiarvo: ???")
+while n < N:
+    x = random.uniform(-1, 1)
+    y = random.uniform(-1, 1)
+
+    n += 1
+
+print("π likiarvo: ???")

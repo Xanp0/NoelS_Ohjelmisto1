@@ -1,3 +1,4 @@
+# TODO Mitä jos ei anneta mitään lukuja? (ei osa tehtävää)
 komento = input("Anna luku: ")
 luku = float(str(komento))
 pieninLuku = suurinLuku = luku
