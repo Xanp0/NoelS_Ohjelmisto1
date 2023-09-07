@@ -1,14 +1,14 @@
-# TODO luvut 21 ja 2 ei toimi oikein
+import math
+
 luku = int(input("Anna kokonaisluku: "))
+onkoAlkuluku = True
 
-if luku >= 1:
-    for testi in range(2, int(luku // 2) + 1):
-        if (luku % testi) == 0:
-            print(f"{luku} ei ole alkuluku")
-            break
-        else:
-            print(f"{luku} on alkuluku")
-            break
+for testaus in range(2, int(math.sqrt(luku))):
+    if luku % testaus == 0:
+        onkoAlkuluku = False
+        break
 
+if onkoAlkuluku:
+    print(f"{luku} on alkuluku.")
 else:
-    print(f"{luku} ei ole alkuluku")
+    print(f"{luku} ei ole alkuluku.")
