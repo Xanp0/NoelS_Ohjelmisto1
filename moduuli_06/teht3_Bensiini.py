@@ -1,9 +1,15 @@
-# funktio, joka saa parametrinaan bensiinin määrän Yhdysvaltain
-# nestegallonoina ja palauttaa paluuarvonaan vastaavan litramäärän.
-# Kirjoita pääohjelma, joka kysyy gallonamäärän käyttäjältä ja muuntaa sen litroiksi.
-# Muunnos on tehtävä aliohjelmaa hyödyntäen. Muuntamista jatketaan siihen saakka,
-# kunnes käyttäjä syöttää negatiivisen gallonamäärän.
-# Yksi gallona on 3,785 litraa.
+litraMuunnos = 3.785
 
-def toimiiko(gallona):
-    print("lol")
+def muuntaja(gallona):
+    muunnettu = gallona * litraMuunnos
+    return muunnettu
+
+komento = float(input("Anna bensiinin gallonamäärä: "))
+bensiini = muuntaja(komento)
+
+while bensiini > 0:
+    print(f"litra muunnos antaa {bensiini} määrän.")
+    uusiKomento = float(input("Anna bensiinin gallonamäärä: "))
+    bensiini = muuntaja(uusiKomento)
+
+print("Negatiivinen määrä syötetty. Toiminnot lopetettu.")

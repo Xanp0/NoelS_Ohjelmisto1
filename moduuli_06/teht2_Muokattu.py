@@ -1,6 +1,14 @@
-# Muokkaa edellistä funktiota siten, että funktio saa parametrinaan nopan tahkojen yhteismäärän.
-# Muokatun funktion avulla voit heitellä esimerkiksi 21-tahkoista roolipelinoppaa.
-# Edellisestä tehtävästä poiketen nopan heittelyä jatketaan pääohjelmassa kunnes
-# saadaan nopan maksimisilmäluku, joka kysytään käyttäjältä ohjelman suorituksen alussa
+import random
 
-# TODO Kopioi teht1 tänne kun se on valmis.
+def noppaMuokkaus(noppaMax):
+    noppaHeitto = random.randint(1, noppaMax)
+    return noppaHeitto
+
+noppaMaksimi = int(input("Montako puolta on nopassa: "))
+noppaTulos = noppaMuokkaus(noppaMaksimi)
+
+while noppaTulos != noppaMaksimi:
+    print(f"Nopasta tuli {noppaTulos}.")
+    noppaTulos = noppaMuokkaus(noppaMaksimi)
+
+print(f"Numero {noppaMaksimi} tuli nopasta. Toiminnot lopetettu.")

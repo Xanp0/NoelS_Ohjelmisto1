@@ -1,7 +1,21 @@
-# funktio, joka saa parametrinaan listan kokonaislukuja.
-# Ohjelma palauttaa listassa olevien lukujen summan.
-# Kirjoita testausta varten pääohjelma, jossa luot listan,
-# kutsut funktiota ja tulostat sen palauttaman summan.
+def lukuLaskeminen(luvut):
+    laskuTulos = 0
 
-def kokonaislukuJuttu():
-    print("lol")
+    for luku in luvut:
+        laskuTulos += luku
+
+    return laskuTulos
+
+lista = []
+laskemaan = False
+
+while laskemaan != True:
+    uusiLuku = int(input("Anna kokonaisluku: "))
+    print("Listaan lisätty uusi luku, jos annoit 0 luvun lista lasketaan läpi.")
+    lista.append(uusiLuku)
+
+    if uusiLuku == 0:
+        laskemaan = True
+
+tulos = lukuLaskeminen(lista)
+print(f"Listan lukujen summa on {tulos}")
