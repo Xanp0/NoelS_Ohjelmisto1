@@ -1,6 +1,8 @@
-# Matikka pää ei toimi...
+import math
 def pizzaLasku(halkaisija, hinta):
-    tulos = halkaisija + hinta  # mitä tähän pitää laittaa?
+    sade = halkaisija / 200
+    pinta = math.pi * sade ** 2
+    tulos = hinta / pinta
     return tulos
 
 halkaisija1 = float(input("Ensimmäisen pizzan halkaisija: "))
@@ -12,6 +14,6 @@ ekaTulos = pizzaLasku(halkaisija1, hinta1)
 tokaTulos = pizzaLasku(halkaisija2, hinta2)
 
 if ekaTulos < tokaTulos:
-    print("Ensimmäisen pizzan yksikköhinta on alhaisempi")
+    print("Ensimmäisen pizzan yksikköhinta on alhaisempi.")
 elif ekaTulos > tokaTulos:
-    print("Toisen pizzan yksikköhinta on alhaisempi")
+    print("Toisen pizzan yksikköhinta on alhaisempi.")

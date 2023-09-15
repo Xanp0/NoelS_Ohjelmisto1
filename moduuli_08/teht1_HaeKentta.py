@@ -1,8 +1,4 @@
-# kysyy käyttäjältä lentoaseman ICAO-koodin. Ohjelma hakee ja
-# tulostaa koodia vastaavan lentokentän nimen ja
-# sen sijaintikunnan kurssilla käytettävästä lentokenttätietokannasta.
-# ICAO-koodi on tallennettuna airport-taulun ident-sarakkeeseen.
-import ignore_Me
+import config
 
 import mysql.connector
 yhteys = mysql.connector.connect(
@@ -20,8 +16,14 @@ def hae_kentta_icao_koodilla(icao):
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
-        return tulos
+
+        if kursori.rowcount > 0:
+                for rivi in tulos:
+                        print(f"Lentokentän nimi on {rivi[0]} ja sijainti on kunnassa {rivi[1]}")
+        else:
+                print("Ei onnistunut.")
+
+        return
 
 koodi = input("Lentoaseman ICAO-koodi: ")
-kenttä = hae_kentta_icao_koodilla(koodi)
-print(f"Kentän nimi on {kenttä[0][1]} ja sijainti kunnassa {kenttä[0][2]}")
+hae_kentta_icao_koodilla(koodi)

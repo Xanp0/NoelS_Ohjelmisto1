@@ -4,3 +4,22 @@
 # Laske etäisyys geopy-kirjaston avulla: https://geopy.readthedocs.io/en/stable/.
 # Asenna kirjasto valitsemalla View / Tool Windows / Python Packages.
 # Kirjoita hakukenttään geopy ja vie asennus loppuun.
+import config
+
+import mysql.connector
+yhteys = mysql.connector.connect(
+        host='127.0.0.1',
+        port=3306,
+        database='flight_game',
+        user=config.user,
+        password=config.password,
+        autocommit=True
+        )
+
+def hae_kentta_icao_koodilla(icao):
+        sql = f"SELECT name, municipality FROM airport WHERE ident='{icao}'"
+        print(sql)
+        kursori = yhteys.cursor()
+        kursori.execute(sql)
+        tulos = kursori.fetchall()
+        return tulos
