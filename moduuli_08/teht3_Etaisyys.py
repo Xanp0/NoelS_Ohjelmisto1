@@ -16,8 +16,8 @@ yhteys = mysql.connector.connect(
         autocommit=True
         )
 
-def hae_kentta_icao_koodilla(icao):
-        sql = f"SELECT name, municipality FROM airport WHERE ident='{icao}'"
+def hae_icao_koodilla(icao):
+        sql = f"SELECT  FROM airport WHERE"
         print(sql)
         kursori = yhteys.cursor()
         kursori.execute(sql)

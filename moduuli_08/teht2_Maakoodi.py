@@ -10,20 +10,20 @@ yhteys = mysql.connector.connect(
         autocommit=True
         )
 
-def hae_kentta_icao_koodilla(icao):
-        sql = f"SELECT name, municipality FROM airport WHERE ident='{icao}'"
+def hae_maa_koodilla(iso):
+        sql = f"SELECT TYPE, COUNT(*) FROM airport WHERE iso_country = '{iso}' GROUP BY TYPE;"
         print(sql)
         kursori = yhteys.cursor()
         kursori.execute(sql)
         tulos = kursori.fetchall()
 
         if kursori.rowcount > 0:
-                for rivi in tulos:
-                        print(f"Lentokentän nimi on {rivi[0]} ja sijainti on kunnassa {rivi[1]}")
+                for tieto in tulos:
+                        print(f"Lentoaseman tyyppi on {tieto[0]} ja lkm: {tieto[1]}")
         else:
                 print("Ei onnistunut.")
 
         return
 
-koodi = input("Lentoaseman ICAO-koodi: ")
-hae_kentta_icao_koodilla(koodi)
+komento = input("Anna ISO-koodi: ")
+hae_maa_koodilla(komento)
