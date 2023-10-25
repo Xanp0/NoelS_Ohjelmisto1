@@ -8,8 +8,8 @@ class Car:
     def kiihdytä(self, speed):
         self.velocity += speed
 
-        if self.velocity > 142:
-            self.velocity = 142
+        if self.velocity > self.maxSpeed:
+            self.velocity = self.maxSpeed
 
         elif self.velocity < 0:
             self.velocity = 0
@@ -17,13 +17,10 @@ class Car:
 
 auto1 = Car("ABC-123", 142)
 auto1.kiihdytä(+30)
-# ensin +30 km/h
 auto1.kiihdytä(+70)
-# sitten +70 km/h
-
 auto1.kiihdytä(+50)
 # lopuksi +50 km/h. Tulosta tämän jälkeen auton nopeus
-print(f"Tämän hetkinen nopeus: {auto1.velocity} km/h.")
+print(f"Tämänhetkinen nopeus: {auto1.velocity} km/h.")
 # Tee sitten hätäjarrutus määräämällä nopeuden muutos -200 km/h
 auto1.kiihdytä(-200)
 print(f"Tämänhetkinen nopeus: {auto1.velocity} km/h.")

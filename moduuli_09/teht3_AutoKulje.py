@@ -8,8 +8,8 @@ class Car:
     def kiihdytä(self, speed):
         self.velocity += speed
 
-        if self.velocity > 142:
-            self.velocity = 142
+        if self.velocity > self.maxSpeed:
+            self.velocity = self.maxSpeed
 
         elif self.velocity < 0:
             self.velocity = 0
