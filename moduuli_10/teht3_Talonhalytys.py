@@ -1,9 +1,3 @@
-# Jatka edellisen tehtävän ohjelmaa siten, että teet Talo-luokan.
-# Talon alustajaparametreina annetaan alimman ja ylimmän kerroksen numero sekä
-# hissien lukumäärä. Talon luonnin yhteydessä talo luo tarvittavan määrän hissejä.
-# Hissien lista tallennetaan talon ominaisuutena. Kirjoita taloon metodi aja_hissiä,
-# joka saa parametreinaan hissin numeron ja kohdekerroksen. Kirjoita pääohjelmaan
-# lauseet talon luomiseksi ja talon hisseillä ajelemiseksi.
 class Elevator:
     def __init__(self, topfloor, bottomfloor):
         self.topfloor = topfloor
@@ -18,6 +12,7 @@ class Elevator:
 
             elif self.currently > kerros:
                 self.kerrosDown()
+        #print("Siirtymämatka tehty.")
         return
 
     def kerrosUp(self):
@@ -34,10 +29,26 @@ class Building:
     def __init__(self, topfloor, bottomfloor, elevators):
         self.topfloor = topfloor
         self.bottomfloor = bottomfloor
-        self.elevators = elevators
         self.elevators = []
+        for i in range(elevators):
+            hissi = Elevator(self.topfloor, bottomfloor)
+            self.elevators.append(hissi)
 
     def ajaHissiä(self, elevatorNum, selectfloor):
+        hissi = self.elevators[elevatorNum]
+        hissi.siirry(selectfloor)
+        print(f"Hissin {elevatorNum+1} siirtymämatka tehty.")
         return
 
-talo = Building()
+    def paloHälytys(self):
+        for i in self.elevators:
+            i.siirry(self.bottomfloor)
+            if i.currently == i.bottomfloor:
+                print(f"Hissi palasi alimpaa kerrokseen, koska palohälytys on päällä.")
+        return
+
+talo = Building(7, 0, 3)
+talo.ajaHissiä(0, 2)
+talo.ajaHissiä(1, 5)
+talo.ajaHissiä(2, 1)
+talo.paloHälytys()

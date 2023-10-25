@@ -30,10 +30,13 @@ class Car:
         self.travel += self.velocity * travelTime
         return
 
-#autot[] = Car
-auto1 = Car("ABC-1")
-auto2 = Car("ABC-2")
-#autot.kulje(random.uniform(-10, 15))
+#autot[]
+#for i in range(10):
+#   autot.append
+
+#while self.travel <= 10000:
+#    autot.velocity(random.uniform(-10, 15))
+#    autot.kulje(1)
 
 print(f"Rekisteri: {auto1.regNumber}. Huippunopeus: {auto1.maxSpeed} km/h. "
       f"Tämänhetkinen nopeus: {auto1.velocity} km/h. Kuljettu matka: {auto1.travel} km.")

@@ -12,7 +12,7 @@ class Elevator:
 
             elif self.currently > kerros:
                 self.kerrosDown()
-        print("Siirtymämatka tehty.")
+        #print("Siirtymämatka tehty.")
         return
 
     def kerrosUp(self):
@@ -25,6 +25,22 @@ class Elevator:
         print(f"Hissi laskeutuu kerrokseen: {self.currently}")
         return
 
-hissi0 = Elevator(7, 0)
-hissi0.siirry(5)
-hissi0.siirry(0)
+class Building:
+    def __init__(self, topfloor, bottomfloor, elevators):
+        self.topfloor = topfloor
+        self.bottomfloor = bottomfloor
+        self.elevators = []
+        for i in range(elevators):
+            hissi = Elevator(self.topfloor, bottomfloor)
+            self.elevators.append(hissi)
+
+    def ajaHissiä(self, elevatorNum, selectfloor):
+        hissi = self.elevators[elevatorNum]
+        hissi.siirry(selectfloor)
+        print(f"Hissin {elevatorNum+1} siirtymämatka tehty.")
+        return
+
+talo = Building(7, 0, 3)
+talo.ajaHissiä(0, 2)
+talo.ajaHissiä(1, 5)
+talo.ajaHissiä(2, 1)
