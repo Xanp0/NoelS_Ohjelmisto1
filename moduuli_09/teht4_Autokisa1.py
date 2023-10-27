@@ -1,16 +1,6 @@
-# Tee pääohjelman alussa lista, joka koostuu kymmenestä toistorakenteella luodusta
-# auto-oliosta. Jokaisen auton huippunopeus arvotaan 100 km/h ja 200 km/h väliltä.
-# Rekisteritunnus luodaan seuraavasti "ABC-1", "ABC-2" jne. Sitten kilpailu alkaa.
-# Kilpailun aikana tehdään tunnin välein seuraavat toimenpiteet
-
-# Jokaisen auton nopeutta muutetaan siten, että nopeuden muutos arvotaan väliltä -10 ja
-# +15 km/h väliltä. Tämä tehdään kutsumalla kiihdytä-metodia
-
-# Kaikkia autoja käsketään liikkumaan yhden tunnin ajan. Tämä tehdään kutsumalla kulje-metodia
-
 import random
 class Car:
-    def __init__(self, regNumber, maxSpeed=random.randint(100, 200), velocity=0, travel=0):
+    def __init__(self, regNumber, maxSpeed, velocity=0, travel=0):
         self.regNumber = regNumber
         self.maxSpeed = maxSpeed
         self.velocity = velocity
@@ -30,15 +20,29 @@ class Car:
         self.travel += self.velocity * travelTime
         return
 
-#autot[]
-#for i in range(10):
-#   autot.append
+autot = []
 
-#while self.travel <= 10000:
-#    autot.velocity(random.uniform(-10, 15))
-#    autot.kulje(1)
+for i in range(1, 11):
+    regNum = f"ABC-{i}"
+    newMaxSpeed = random.randint(100, 200)
+    raceCar = Car(regNum, newMaxSpeed)
+    autot.append(raceCar)
 
-print(f"Rekisteri: {auto1.regNumber}. Huippunopeus: {auto1.maxSpeed} km/h. "
-      f"Tämänhetkinen nopeus: {auto1.velocity} km/h. Kuljettu matka: {auto1.travel} km.")
-# Kilpailu jatkuu, kunnes jokin autoista on edennyt vähintään 10000 kilometriä.
-# Lopuksi tulostetaan kunkin auton kaikki ominaisuudet selkeäksi taulukoksi muotoiltuna.
+kisaJatkuu = True
+kisaKestänyt = 0
+
+while kisaJatkuu:
+    for racer in autot:
+        speedChanges = random.uniform(-10, 15)
+        racer.kiihdytä(speedChanges)
+        racer.kulje(1)
+
+        if racer.travel >= 10000:
+            kisaJatkuu = False
+
+    kisaKestänyt += 1
+print(f"Kisa on kestänyt {kisaKestänyt} tuntia.")
+
+for racers in autot:
+    print(f"Rekisteri: {racers.regNumber}. Huippunopeus: {racers.maxSpeed:.0f} km/h. "
+          f"Tämänhetkinen nopeus: {racers.velocity:.0f} km/h. Kuljettu matka: {racers.travel:.0f} km.")
