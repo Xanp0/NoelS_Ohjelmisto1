@@ -70,9 +70,9 @@ while kisaJatkuu:
             kisaJatkuu = False
 
         if kisaKestänyt % 10 == 0:
-            print(f"Kisan tilanne {kisaKestänyt} tunnin jälkeen:")
+            print(f"{kisa.compName} tilanne {kisaKestänyt} tunnin jälkeen:")
             kisa.compSituation()
             print("")
 
-print(f"Kisa on päättynyt ja siinä kesti {kisaKestänyt} tuntia.")
+print(f"{kisa.compName} on päättynyt ja siinä kesti {kisaKestänyt} tuntia.")
 kisa.compSituation()
