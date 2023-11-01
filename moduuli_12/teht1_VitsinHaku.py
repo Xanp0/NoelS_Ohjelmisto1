@@ -1,8 +1,12 @@
 import requests
 import json
 
-pyyntö = "https://api.chucknorris.io/jokes/random"
-vastaus = requests.get(pyyntö)
-json_vastaus = vastaus.json()
+vitsi = requests.get("https://api.chucknorris.io/jokes/random").json()
 print("\nHere's a random Chuck Norris joke for you.\n")
-print(json_vastaus["value"])
+print(vitsi["value"])
+
+# pyynto = "https://api.chucknorris.io/jokes/random"
+# vitsi = requests.get(pyynto)
+# jsonVitsi = vitsi.json()
+# print("\nHere's a random Chuck Norris joke for you.\n")
+# print(jsonVitsi["value"])
