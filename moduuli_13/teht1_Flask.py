@@ -1,5 +1,6 @@
 from flask import Flask, request
 import json
+import math
 
 app = Flask(__name__)
 @app.route('/alkuluku/<int:numero>')
